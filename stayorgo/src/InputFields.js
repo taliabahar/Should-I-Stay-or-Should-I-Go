@@ -10,7 +10,6 @@ function InputFields() {
           id="foodInfo"
           placeholder="What type of food are you looking for?"
         ></input>
-        <input id="locationInfo" placeholder="What is your zip code?"></input>
       </form>
     </div>
   );
