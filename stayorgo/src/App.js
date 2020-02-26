@@ -1,15 +1,19 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { Component } from "react";
 import "./App.css";
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import InputFields from "./InputFields";
+import Comparison from "./Comparison";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Should I Stay? or Should I Go?</h1>
-      <InputFields></InputFields>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={InputFields}></Route>
+          <Route exact path="/comparison" component={Comparison}></Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

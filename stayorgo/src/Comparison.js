@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./logo.svg";
-import "./Compaison.css";
+import "./Comparison.css";
 
 import Results from "./Results";
 
