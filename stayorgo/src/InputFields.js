@@ -52,12 +52,12 @@ function InputFields() {
 
   return (
     <div className="FoodInput">
+      <link rel="stylesheet" href="https://use.typekit.net/mdr8lxf.css"></link>
       <h1>Should I Stay? or Should I Go?</h1>
-
       <form>
         <input
           id="foodInfo"
-          placeholder="What type of food are you looking for?"
+          placeholder="  What are you craving?"
           type="text"
           onChange={e => setFoodEntry(e.target.value)}
           value={foodEntry}

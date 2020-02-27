@@ -7,6 +7,7 @@ import Comparison from "./Comparison";
 function App() {
   return (
     <Router>
+      <link rel="stylesheet" href="https://use.typekit.net/mdr8lxf.css"></link>
       <div className="App">
         <Switch>
           <Route exact path="/" component={InputFields}></Route>
