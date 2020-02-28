@@ -54,19 +54,25 @@ function InputFields() {
       const searchRecipeResults = await searchRecipe(foodEntry);
       const menuItemSearchResults = await menuItemSearch(foodEntry);
       // below need to map through these 2 results and grab each needed ID can also create states to store recipe info like name now
-      setRecipeID(searchRecipeResults.results[0].id);
-      setRecipeImage(searchRecipeResults.results[0].image);
-      setRecipeTitle(searchRecipeResults.results[0].title);
-
-      setMenuID(menuItemSearchResults.menuItems[0].id);
-      setMenuImage(menuItemSearchResults.menuItems[0].image);
-      setMenuTitle(menuItemSearchResults.menuItems[0].title);
-      setMenuChain(menuItemSearchResults.menuItems[0].restaurantChain);
+      
+      
+      //random Recipe
+      let randomRecipeIndex = Math.random() * searchRecipe.totalResults;
+      //assigning all the id stuff with the randmo recipe index
+      setRecipeID(searchRecipeResults.results[randomRecipeIndex].id);
+      setRecipeImage(searchRecipeResults.results[randomRecipeIndex].image);
+      setRecipeTitle(searchRecipeResults.results[randomRecipeIndex].title);
+      //random menu index
+      let randomMenuIndex = Math.random() * menuItemSearchResults.totalMenuItems;
+      //assiging all the title stuff with the random menu index
+      setMenuID(menuItemSearchResults.menuItems[randomMenuIndex].id);
+      setMenuImage(menuItemSearchResults.menuItems[randomMenuIndex].image);
+      setMenuTitle(menuItemSearchResults.menuItems[randomMenuIndex].title);
+      setMenuChain(menuItemSearchResults.menuItems[randomMenuIndex].restaurantChain);
       
       // setMenuID(menuItemSearchResults.
       const recipeNutritionInfo = await nutritionResults(recipeID);
       const menuItemNutritionInfo = await menuItemId(menuID);
-
 
       setRecipeCal(recipeNutritionInfo.calories);
       setRecipeCarbs(recipeNutritionInfo.carbs);
