@@ -15,14 +15,16 @@ body {
   display: flex;
   width: 50vw;
   height: 100vh;
-  background-color: aqua;
-  text-align: center;
+  color: #4B2929;
+  background-color: #E3D8DA;
+  text-align: right;
 }
 
 .go {
   display: flex;
   width: 50vw;
   height: 100vh;
-  background-color: yellow;
-  text-align: center;
+  color: #213925;
+  background-color: #D9DFDD;
+  text-align: right;
 }
