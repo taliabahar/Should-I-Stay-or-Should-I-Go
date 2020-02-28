@@ -11,9 +11,11 @@ function Comparison() {
         <h1 id="stay">Stay</h1>
       </div>
       <div className="go">
-        <h1>Go</h1>
+        <h1 id="go">Go</h1>
       </div>
-      <Results></Results>
+      <div className="result"> 
+        <Results></Results>
+      </div>
     </div>
   );
 }
