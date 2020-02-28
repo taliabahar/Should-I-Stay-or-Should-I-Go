@@ -17,14 +17,17 @@ function InputFields() {
   const [recipeID, setRecipeID] = useState("");
   const [recipeImage, setRecipeImage] = useState("");
   const [recipeTitle, setRecipeTitle] = useState("");
+  
   const [recipeCal, setRecipeCal] = useState("");
   const [recipeCarbs, setRecipeCarbs] = useState("");
   const [recipeFat, setRecipeFat] = useState("");
   const [recipeProtein, setRecipeProtein] = useState("");
+  
   const [menuID, setMenuID] = useState("");
   const [menuImage, setMenuImage] = useState("");
   const [menuTitle, setMenuTitle] = useState("");
   const [menuChain, setMenuChain] = useState("");
+  
   const [menuCal, setMenuCal] = useState("");
   const [menuCarbs, setMenuCarbs] = useState("");
   const [menuFat, setMenuFat] = useState("");
@@ -70,7 +73,10 @@ function InputFields() {
       setRecipeFat(recipeNutritionInfo.fat);
       setRecipeProtein(recipeNutritionInfo.protein);
 
-      
+      setMenuCal(menuItemNutritionInfo.nutrition.calories);
+      setMenuCarbs(menuItemNutritionInfo.nutrition.carbs);
+      setMenuFat(menuItemNutritionInfo.nutrition.fat);
+      setMenuProtein(menuItemNutritionInfo.nutrition.protein);
       // now that we have the data from the 4 api calls you can create states
       // like above for things you want to store when traversing through the object like calories, protein, etc.
       //ex setRecipeCalories(nutritionResult.______._______)
