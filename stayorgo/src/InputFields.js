@@ -38,9 +38,10 @@ function InputFields() {
       // const searchRecipeResults = await searchRecipe(foodEntry);
 
       // setRecipeID(searchRecipeResults.results[0].id);
+      setMenuID(menuItemSearchResults.menuItems[0].id);
+
       // setRecipeImage(searchRecipeResults.results[0].image);
       // setRecipeTitle(searchRecipeResults.results[0].title);
-      setMenuID(menuItemSearchResults.menuItems[0].id);
       // setMenuImage(menuItemSearchResults.menuItems[0].image);
       // setMenuTitle(menuItemSearchResults.menuItems[0].title);
       // setMenuChain(menuItemSearchResults.menuItems[0].restaurantChain);
@@ -58,6 +59,20 @@ function InputFields() {
       // setMenuCarbs(menuItemNutritionInfo.nutrition.carbs);
       // setMenuFat(menuItemNutritionInfo.nutrition.fat);
       // setMenuProtein(menuItemNutritionInfo.nutrition.protein);
+
+      // ---------------------------------------------------------------------------
+      // CAN INCOPORATE RANDOMIZATION ONCE WE GET APIS TO WORK :)
+      // let randomRecipeIndex = Math.random() * searchRecipe.totalResults;
+      // setRecipeID(searchRecipeResults.results[randomRecipeIndex].id);
+      // setRecipeImage(searchRecipeResults.results[randomRecipeIndex].image);
+      // setRecipeTitle(searchRecipeResults.results[randomRecipeIndex].title);
+
+      // let randomMenuIndex = Math.random() * menuItemSearchResults.totalMenuItems;
+      // setMenuID(menuItemSearchResults.menuItems[randomMenuIndex].id);
+      // setMenuImage(menuItemSearchResults.menuItems[randomMenuIndex].image);
+      // setMenuTitle(menuItemSearchResults.menuItems[randomMenuIndex].title);
+      // setMenuChain(menuItemSearchResults.menuItems[randomMenuIndex].restaurantChain);
+      // ---------------------------------------------------------------------------
     } catch (error) {
       setError("Sorry, but something went wrong.");
     }
