@@ -36,7 +36,7 @@ const apiHost = host => {
 const urlFor = resource => `${api}${resource}`;
 
 const HTTP_OK = 200;
-const HTTP_CREATED = 201;
+//const HTTP_CREATED = 201;
 
 const throwResponseError = response => {
   const error = new Error(response.statusText);
@@ -64,7 +64,7 @@ const headers = {
 
 // METHOD #1
 const queryGET = resource => {
-  const url = urlFor(resource);
+  // const url = urlFor(resource);
   return fetch(`${urlFor(resource)}`, {
     method: "GET",
     headers: headers
@@ -73,8 +73,9 @@ const queryGET = resource => {
     .then(response => response.json());
 };
 
+//https://api.spoonacular.com/recipes/search?query=cheese&number=2
 const searchRecipe = foodEntry => {
-  const url = `/recipe/search?query=${foodEntry}&apikey=${token}`;
+  const url = `/recipes/search?query=burger&apikey=${token}`;
   const query_url = queryGET(url);
   return query_url;
 };
@@ -85,8 +86,10 @@ const nutritionResults = id => {
   return query_url;
 };
 
+//api.spoonacular.com/food/menuItems/search?query=burger&number=2&apiKey=f7deaa757e034458bb5c8a8b911c82eb
+
 const menuItemSearch = foodEntry => {
-  const url = `/food/menuItems/search?query=${foodEntry}&apikey=${token}`;
+  const url = `/food/menuItems/search?query=${foodEntry}&number=2&apiKey=f7deaa757e034458bb5c8a8b911c82eb`;
   const query_url = queryGET(url);
   return query_url;
 };
