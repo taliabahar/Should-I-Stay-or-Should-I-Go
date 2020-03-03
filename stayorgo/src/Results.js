@@ -2,7 +2,8 @@ import React from "react";
 import logo from "./logo.svg";
 import "./Results.css";
 
-function Results() {
+const Results =({menuID})=> {
+  console.log("IN Results ", menuID)
   return (
     <div className="Results">
       <h2>Title:</h2>

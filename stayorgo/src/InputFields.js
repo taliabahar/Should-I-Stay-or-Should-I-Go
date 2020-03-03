@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./InputFields.css";
+import Results from "./Results"
 import {
   searchRecipe,
   nutritionResults,
   menuItemSearch,
-  menuItemId
+  menuItemId,
+
 } from "./spoonAPI.js";
 
 function InputFields() {
@@ -36,9 +38,12 @@ function InputFields() {
     try {
       const menuItemSearchResults = await menuItemSearch(foodEntry);
       // const searchRecipeResults = await searchRecipe(foodEntry);
+      console.log("in grab data",menuItemSearchResults);
 
       // setRecipeID(searchRecipeResults.results[0].id);
+      console.log("ID I want: " + menuItemSearchResults.menuItems);
       setMenuID(menuItemSearchResults.menuItems[0].id);
+
 
       // setRecipeImage(searchRecipeResults.results[0].image);
       // setRecipeTitle(searchRecipeResults.results[0].title);
@@ -48,8 +53,7 @@ function InputFields() {
 
       // const recipeNutritionInfo = await nutritionResults(recipeID);
       // const menuItemNutritionInfo = await menuItemId(menuID);
-      console.log("ID I want: " + menuItemSearchResults.menuItems[0].id);
-      console.log("ID" + menuID);
+ 
 
       // setRecipeCal(recipeNutritionInfo.calories);
       // setRecipeCarbs(recipeNutritionInfo.carbs);
@@ -78,17 +82,20 @@ function InputFields() {
     }
   }
 
-  function onKeyDownHandler(e) {
+ const onKeyDownHandler = (e) => {
     e.preventDefault();
     // if (e.keyCode === 13) {
     // console.warn("hi");
     grabData();
-    // console.log("MENU TITLE:" + menuTitle);
+    let h = menuID
+    //console.log("MENU TITLE:" + menuTitle);
     // }
   }
 
+
   return (
     <div className="FoodInput">
+    {      console.log("menu id", menuID)}
       <link rel="stylesheet" href="https://use.typekit.net/mdr8lxf.css"></link>
       <h1>Should I Stay? or Should I Go?</h1>
       <form>
@@ -100,8 +107,10 @@ function InputFields() {
           value={foodEntry}
           // onKeyDown={onKeyDownHandler.bind(this)}
         ></input>
+        <h1>{menuID}</h1>
       </form>
       <button onClick={onKeyDownHandler}>TEST</button>
+      <Results menuID={menuID} />
     </div>
   );
 }
