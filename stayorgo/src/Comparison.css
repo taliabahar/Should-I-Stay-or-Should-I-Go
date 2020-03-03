@@ -7,6 +7,7 @@ body {
 }
 
 .Comparison {
+  /* display: flex; */
   display: grid;
   /* display: flex;
   flex-direction: row; */
