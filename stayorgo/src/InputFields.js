@@ -6,8 +6,7 @@ import {
   searchRecipe,
   nutritionResults,
   menuItemSearch,
-  menuItemId,
-
+  menuItemId
 } from "./spoonAPI.js";
 
 function InputFields() {
@@ -21,6 +20,7 @@ function InputFields() {
   const [recipeFat, setRecipeFat] = useState("");
   const [recipeProtein, setRecipeProtein] = useState("");
 
+  /** ID working */
   const [menuID, setMenuID] = useState("");
   const [menuImage, setMenuImage] = useState("");
   const [menuTitle, setMenuTitle] = useState("");
@@ -36,33 +36,32 @@ function InputFields() {
   // loading message
   async function grabData() {
     try {
-      const menuItemSearchResults = await menuItemSearch(foodEntry);
-      // const searchRecipeResults = await searchRecipe(foodEntry);
-      console.log("in grab data",menuItemSearchResults);
 
-      // setRecipeID(searchRecipeResults.results[0].id);
-      console.log("ID I want: " + menuItemSearchResults.menuItems);
+      const menuItemSearchResults = await menuItemSearch(foodEntry);
+      
       setMenuID(menuItemSearchResults.menuItems[0].id);
 
+      const searchRecipeResults = await searchRecipe(foodEntry);
+
+      setRecipeID(searchRecipeResults.results[0].id);
 
       // setRecipeImage(searchRecipeResults.results[0].image);
       // setRecipeTitle(searchRecipeResults.results[0].title);
-      // setMenuImage(menuItemSearchResults.menuItems[0].image);
-      // setMenuTitle(menuItemSearchResults.menuItems[0].title);
-      // setMenuChain(menuItemSearchResults.menuItems[0].restaurantChain);
+      setMenuImage(menuItemSearchResults.menuItems[0].image);
+      setMenuTitle(menuItemSearchResults.menuItems[0].title);
+      setMenuChain(menuItemSearchResults.menuItems[0].restaurantChain);
 
       // const recipeNutritionInfo = await nutritionResults(recipeID);
-      // const menuItemNutritionInfo = await menuItemId(menuID);
+      const menuItemNutritionInfo = await menuItemId(menuID);
  
-
       // setRecipeCal(recipeNutritionInfo.calories);
       // setRecipeCarbs(recipeNutritionInfo.carbs);
       // setRecipeFat(recipeNutritionInfo.fat);
       // setRecipeProtein(recipeNutritionInfo.protein);
-      // setMenuCal(menuItemNutritionInfo.nutrition.calories);
-      // setMenuCarbs(menuItemNutritionInfo.nutrition.carbs);
-      // setMenuFat(menuItemNutritionInfo.nutrition.fat);
-      // setMenuProtein(menuItemNutritionInfo.nutrition.protein);
+      setMenuCal(menuItemNutritionInfo.nutrition.calories);
+      setMenuCarbs(menuItemNutritionInfo.nutrition.carbs);
+      setMenuFat(menuItemNutritionInfo.nutrition.fat);
+      setMenuProtein(menuItemNutritionInfo.nutrition.protein);
 
       // ---------------------------------------------------------------------------
       // CAN INCOPORATE RANDOMIZATION ONCE WE GET APIS TO WORK :)
@@ -87,15 +86,17 @@ function InputFields() {
     // if (e.keyCode === 13) {
     // console.warn("hi");
     grabData();
-    let h = menuID
-    //console.log("MENU TITLE:" + menuTitle);
+    
     // }
   }
 
 
   return (
     <div className="FoodInput">
-    {      console.log("menu id", menuID)}
+          { console.log("menu id", menuID) }
+          { console.log("menu calories", menuCal)}
+          { console.log("MENU TITLE:" + menuTitle)}
+          { console.log("recipe id", recipeID) }  
       <link rel="stylesheet" href="https://use.typekit.net/mdr8lxf.css"></link>
       <h1>Should I Stay? or Should I Go?</h1>
       <form>
@@ -107,10 +108,12 @@ function InputFields() {
           value={foodEntry}
           // onKeyDown={onKeyDownHandler.bind(this)}
         ></input>
+        {/* Testing purposes the id is printed below */}
         <h1>{menuID}</h1>
+        <h1>{recipeID}</h1>
       </form>
       <button onClick={onKeyDownHandler}>TEST</button>
-      <Results menuID={menuID} />
+      <Results menuID={menuID} recipeID={recipeID}/>
     </div>
   );
 }
