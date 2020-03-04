@@ -75,13 +75,13 @@ const queryGET = resource => {
 
 //https://api.spoonacular.com/recipes/search?query=cheese&number=2
 const searchRecipe = foodEntry => {
-  const url = `/recipes/search?query=burger&apikey=${token}`;
+  const url = `/recipes/search?query=${foodEntry}&apiKey=${token}`;
   const query_url = queryGET(url);
   return query_url;
 };
 
 const nutritionResults = id => {
-  const url = `/recipes/${id}/nutritionWidget.json?apikey=${token}`;
+  const url = `/recipes/${id}/nutritionWidget.json?apiKey=${token}`;
   const query_url = queryGET(url);
   return query_url;
 };
@@ -95,7 +95,7 @@ const menuItemSearch = foodEntry => {
 };
 
 const menuItemId = id => {
-  const url = `/food/menuItems/?id=${id}&apikey=${token}`;
+  const url = `/food/menuItems/${id}?&apiKey=${token}`;
   const query_url = queryGET(url);
   return query_url;
 };
