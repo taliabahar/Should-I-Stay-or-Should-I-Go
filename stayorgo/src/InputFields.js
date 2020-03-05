@@ -42,7 +42,6 @@ function InputFields() {
     try {
       //all menu stuff
       const menuItemSearchResults = await menuItemSearch(foodEntry);
-      let randomMenuIndex = Math.random() * menuItemSearchResults.totalMenuItems;
       
       setMenuID(menuItemSearchResults.menuItems[0].id);
       setMenuImage(menuItemSearchResults.menuItems[0].image);
@@ -58,7 +57,6 @@ function InputFields() {
 
       //all recipe stuff
       const searchRecipeResults = await searchRecipe(foodEntry);
-      let randomRecipeIndex = Math.random() * searchRecipe.totalResults;
 
       setRecipeID(searchRecipeResults.results[0].id);
       setRecipeCookTime(searchRecipeResults.results[0].readyInMinutes);
@@ -99,7 +97,6 @@ function InputFields() {
     // }
   }
 
-
   return (
     <div className="FoodInput">
       <link rel="stylesheet" href="https://use.typekit.net/mdr8lxf.css"></link>
@@ -114,8 +111,8 @@ function InputFields() {
           // onKeyDown={onKeyDownHandler.bind(this)}
         ></input>
       </form>
-      <button onClick={onKeyDownHandler}>
-      <NavLink activeclassName="activeHomeTab" exact id="home" to="/comparison">SEARCH</NavLink></button>
+       {/* // display: block once working */}
+      <button onClick={onKeyDownHandler}><NavLink activeclassname="activeHomeTab" exact id="home" to="/comparison" style={{ textDecoration: 'none'}}>SEARCH</NavLink></button>
       <Results id="results"
         //all menu related results
         menuID={menuID}

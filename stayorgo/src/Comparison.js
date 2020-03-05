@@ -3,8 +3,14 @@ import logo from "./logo.svg";
 import "./Comparison.css";
 
 import Results from "./Results";
+import InputFields from "./InputFields";
 
-function Comparison (){
+const Comparison = ({
+  menuID, menuImage, recipeID, menuTitle, menuChain, 
+  menuCal, menuCarbs, menuFat, menuProtein, 
+  recipeTitle, recipeCookTime, recipeServings, recipeImage,
+  recipeCal, recipeCarbs, recipeFat, recipeProtein
+}) => {
   return (
     <div className="Comparison">
       <div className="stay">
@@ -14,7 +20,7 @@ function Comparison (){
         <h1 id="go">Go</h1>
       </div>
       <div className="result"> 
-      {/* <Results id="results"
+      <Results id="results"
         //all menu related results
         menuID={menuID}
         menuImage={menuImage}
@@ -34,7 +40,7 @@ function Comparison (){
         recipeFat={recipeFat}
         recipeProtein={recipeProtein}
         recipeImage={recipeImage}   
-      /> */}
+      />
       </div>
       
     </div>
