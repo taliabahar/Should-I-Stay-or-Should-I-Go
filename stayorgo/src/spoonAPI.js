@@ -1,6 +1,7 @@
 let api = "https://api.spoonacular.com";
 // let token = "f7deaa757e034458bb5c8a8b911c82eb";
-let token = "f55bd8ceba144ee2a5e8e076bf69c684";
+// let token = "b7f5692c27fe4d57ba72e520f6937842";
+let token = "321f66bc22f84aa9889fa33bc802f33d";
 
 // GET https://api.spoonacular.com/recipes/search -gets ID to feed into next call
 // GET https://api.spoonacular.com/recipes/{id}/nutritionWidget.json

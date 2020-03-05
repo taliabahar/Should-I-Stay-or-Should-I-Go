@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./InputFields.css";
 import Results from "./Results"
+import { NavLink } from "react-router-dom";
 import {
   searchRecipe,
   nutritionResults,
@@ -113,7 +114,8 @@ function InputFields() {
           // onKeyDown={onKeyDownHandler.bind(this)}
         ></input>
       </form>
-      <button onClick={onKeyDownHandler}>SEARCH</button>
+      <button onClick={onKeyDownHandler}>
+      <NavLink activeclassName="activeHomeTab" exact id="home" to="/comparison">SEARCH</NavLink></button>
       <Results id="results"
         //all menu related results
         menuID={menuID}

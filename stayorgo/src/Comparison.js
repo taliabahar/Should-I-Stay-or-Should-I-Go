@@ -4,7 +4,7 @@ import "./Comparison.css";
 
 import Results from "./Results";
 
-function Comparison() {
+function Comparison (){
   return (
     <div className="Comparison">
       <div className="stay">
@@ -14,7 +14,27 @@ function Comparison() {
         <h1 id="go">Go</h1>
       </div>
       <div className="result"> 
-        <Results></Results>
+      {/* <Results id="results"
+        //all menu related results
+        menuID={menuID}
+        menuImage={menuImage}
+        menuTitle={menuTitle}
+        menuChain={menuChain} 
+        menuCal={menuCal} 
+        menuCarbs={menuCarbs} 
+        menuFat={menuFat} 
+        menuProtein={menuProtein}
+        //all recipe related results
+        recipeID={recipeID}
+        recipeTitle={recipeTitle}
+        recipeCookTime={recipeCookTime}
+        recipeServings={recipeServings}
+        recipeCal={recipeCal}
+        recipeCarbs={recipeCarbs}
+        recipeFat={recipeFat}
+        recipeProtein={recipeProtein}
+        recipeImage={recipeImage}   
+      /> */}
       </div>
       
     </div>
