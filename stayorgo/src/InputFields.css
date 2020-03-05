@@ -1,13 +1,12 @@
 body {
   display: grid;
-  display: block;
-  grid-template-columns: 100%;
+  grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
   text-align: center;
 }
 
 h1 {
-  grid-column: 1;
+  grid-column: 1 / span 1;
   grid-row: 1 / span 1;
   text-align: center;
 }
@@ -22,13 +21,19 @@ input {
   font-family: filson-pro, sans-serif;
   font-weight: 400;
   font-style: normal;
-  grid-column: 1;
+  grid-column: 1 / span 1;
   grid-row: 2 / span 1;
 }
 
 button {
-  width: 300px;
-  height: 200px;
-  grid-column: 1;
+  width: 200px;
+  height: 100px;
+  grid-column: 1 / span 1;
   grid-row: 2 / span 1;
+}
+
+.Results {
+  display: grid;
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 1;
 }

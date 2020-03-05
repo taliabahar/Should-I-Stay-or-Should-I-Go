@@ -22,7 +22,6 @@ function InputFields() {
   const [recipeFat, setRecipeFat] = useState("");
   const [recipeProtein, setRecipeProtein] = useState("");
 
-  /** ID working */
   const [menuID, setMenuID] = useState("");
   const [menuImage, setMenuImage] = useState("");
   const [menuTitle, setMenuTitle] = useState("");
@@ -98,13 +97,6 @@ function InputFields() {
 
   return (
     <div className="FoodInput">
-          { console.log("menu id", menuID) }
-          { console.log("menu calories", menuCal)}
-          { console.log("MENU TITLE:" + menuTitle)}
-          { console.log("recipe id", recipeID) }  
-          { console.log("recipe image", recipeImage) }
-          { console.log("recipe cook time",recipeCookTime)}
-          { console.log("recipe serving size", recipeServings)}
       <link rel="stylesheet" href="https://use.typekit.net/mdr8lxf.css"></link>
       <h1>Should I Stay? or Should I Go?</h1>
       <form>
@@ -116,14 +108,9 @@ function InputFields() {
           value={foodEntry}
           // onKeyDown={onKeyDownHandler.bind(this)}
         ></input>
-        {/* Testing purposes the id is printed below */}
-        {/*
-        <h1>{menuID}</h1>
-        <h1>{recipeID}</h1>
-        */}
       </form>
-      <button onClick={onKeyDownHandler}>TEST</button>
-      <Results 
+      <button onClick={onKeyDownHandler}>SEARCH</button>
+      <Results id="results"
         //all menu related results
         menuID={menuID}
         menuImage={menuImage}
@@ -142,10 +129,9 @@ function InputFields() {
         recipeCarbs={recipeCarbs}
         recipeFat={recipeFat}
         recipeProtein={recipeProtein}
-        recipeImage={recipeImage}
-        
+        recipeImage={recipeImage}   
       />
-    </div>
+    </div> 
   );
 }
 

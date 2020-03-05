@@ -1,8 +1,10 @@
 .Results {
+  display: grid;
+  grid-template-columns: 50% 50%;
   background-color: #E1E2E5;
   border: solid 1px #224C8B;
-  width: 400px;
-  height: 200px;
+  /* width: 400px;
+  height: 200px; */
   margin: 55px;
 }
 
@@ -11,7 +13,19 @@ h2{
   text-align: left;
 }
 
+h3 {
+  text-align: center;
+}
+
 p {
   margin: 20px;
   text-align: left;
+}
+
+#stay {
+  grid-column: 1 / span 1;
+}
+
+#go {
+  grid-column: 2 / span 1;
 }
