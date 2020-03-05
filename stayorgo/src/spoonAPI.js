@@ -81,7 +81,7 @@ const searchRecipe = foodEntry => {
 };
 
 const nutritionResults = id => {
-  const url = `/recipes/${id}/nutritionWidget.json?apiKey=${token}`;
+  const url = `/recipes/${id}/nutritionWidget.json?&apiKey=${token}`;
   const query_url = queryGET(url);
   return query_url;
 };

@@ -15,6 +15,8 @@ function InputFields() {
   const [recipeImage, setRecipeImage] = useState("");
   const [recipeTitle, setRecipeTitle] = useState("");
 
+  const [recipeServings, setRecipeServings] = useState("");
+  const [recipeCookTime, setRecipeCookTime] = useState("");
   const [recipeCal, setRecipeCal] = useState("");
   const [recipeCarbs, setRecipeCarbs] = useState("");
   const [recipeFat, setRecipeFat] = useState("");
@@ -36,33 +38,36 @@ function InputFields() {
   // loading message
   async function grabData() {
     try {
-
+      //all menu stuff
       const menuItemSearchResults = await menuItemSearch(foodEntry);
       
       setMenuID(menuItemSearchResults.menuItems[0].id);
-
-      const searchRecipeResults = await searchRecipe(foodEntry);
-
-      setRecipeID(searchRecipeResults.results[0].id);
-
-      // setRecipeImage(searchRecipeResults.results[0].image);
-      // setRecipeTitle(searchRecipeResults.results[0].title);
       setMenuImage(menuItemSearchResults.menuItems[0].image);
       setMenuTitle(menuItemSearchResults.menuItems[0].title);
       setMenuChain(menuItemSearchResults.menuItems[0].restaurantChain);
-
-      // const recipeNutritionInfo = await nutritionResults(recipeID);
-      const menuItemNutritionInfo = await menuItemId(menuID);
  
-      // setRecipeCal(recipeNutritionInfo.calories);
-      // setRecipeCarbs(recipeNutritionInfo.carbs);
-      // setRecipeFat(recipeNutritionInfo.fat);
-      // setRecipeProtein(recipeNutritionInfo.protein);
+      const menuItemNutritionInfo = await menuItemId(menuItemSearchResults.menuItems[0].id);
+ 
       setMenuCal(menuItemNutritionInfo.nutrition.calories);
       setMenuCarbs(menuItemNutritionInfo.nutrition.carbs);
       setMenuFat(menuItemNutritionInfo.nutrition.fat);
       setMenuProtein(menuItemNutritionInfo.nutrition.protein);
 
+      //all recipe stuff
+      const searchRecipeResults = await searchRecipe(foodEntry);
+
+      setRecipeID(searchRecipeResults.results[0].id);
+      setRecipeCookTime(searchRecipeResults.results[0].readyInMinutes);
+      setRecipeServings(searchRecipeResults.results[0].servings);
+      setRecipeImage(searchRecipeResults.results[0].image);
+      setRecipeTitle(searchRecipeResults.results[0].title);
+
+      const recipeNutritionInfo = await nutritionResults(searchRecipeResults.results[0].id);
+
+      setRecipeCal(recipeNutritionInfo.calories);
+      setRecipeCarbs(recipeNutritionInfo.carbs);
+      setRecipeFat(recipeNutritionInfo.fat);
+      setRecipeProtein(recipeNutritionInfo.protein);
       // ---------------------------------------------------------------------------
       // CAN INCOPORATE RANDOMIZATION ONCE WE GET APIS TO WORK :)
       // let randomRecipeIndex = Math.random() * searchRecipe.totalResults;
@@ -97,6 +102,9 @@ function InputFields() {
           { console.log("menu calories", menuCal)}
           { console.log("MENU TITLE:" + menuTitle)}
           { console.log("recipe id", recipeID) }  
+          { console.log("recipe image", recipeImage) }
+          { console.log("recipe cook time",recipeCookTime)}
+          { console.log("recipe serving size", recipeServings)}
       <link rel="stylesheet" href="https://use.typekit.net/mdr8lxf.css"></link>
       <h1>Should I Stay? or Should I Go?</h1>
       <form>
@@ -109,11 +117,34 @@ function InputFields() {
           // onKeyDown={onKeyDownHandler.bind(this)}
         ></input>
         {/* Testing purposes the id is printed below */}
+        {/*
         <h1>{menuID}</h1>
         <h1>{recipeID}</h1>
+        */}
       </form>
       <button onClick={onKeyDownHandler}>TEST</button>
-      <Results menuID={menuID} recipeID={recipeID}/>
+      <Results 
+        //all menu related results
+        menuID={menuID}
+        menuImage={menuImage}
+        menuTitle={menuTitle}
+        menuChain={menuChain} 
+        menuCal={menuCal} 
+        menuCarbs={menuCarbs} 
+        menuFat={menuFat} 
+        menuProtein={menuProtein}
+        //all recipe related results
+        recipeID={recipeID}
+        recipeTitle={recipeTitle}
+        recipeCookTime={recipeCookTime}
+        recipeServings={recipeServings}
+        recipeCal={recipeCal}
+        recipeCarbs={recipeCarbs}
+        recipeFat={recipeFat}
+        recipeProtein={recipeProtein}
+        recipeImage={recipeImage}
+        
+      />
     </div>
   );
 }
