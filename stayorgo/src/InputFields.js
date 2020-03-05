@@ -8,6 +8,8 @@ import {
   menuItemSearch,
   menuItemId
 } from "./spoonAPI.js";
+// import Comparison from "./Comparison";
+import { Link } from "react-router-dom";
 
 function InputFields() {
   const [foodEntry, setFoodEntry] = useState("");
@@ -39,6 +41,7 @@ function InputFields() {
     try {
       //all menu stuff
       const menuItemSearchResults = await menuItemSearch(foodEntry);
+      let randomMenuIndex = Math.random() * menuItemSearchResults.totalMenuItems;
       
       setMenuID(menuItemSearchResults.menuItems[0].id);
       setMenuImage(menuItemSearchResults.menuItems[0].image);
@@ -54,6 +57,7 @@ function InputFields() {
 
       //all recipe stuff
       const searchRecipeResults = await searchRecipe(foodEntry);
+      let randomRecipeIndex = Math.random() * searchRecipe.totalResults;
 
       setRecipeID(searchRecipeResults.results[0].id);
       setRecipeCookTime(searchRecipeResults.results[0].readyInMinutes);
@@ -69,12 +73,12 @@ function InputFields() {
       setRecipeProtein(recipeNutritionInfo.protein);
       // ---------------------------------------------------------------------------
       // CAN INCOPORATE RANDOMIZATION ONCE WE GET APIS TO WORK :)
-      // let randomRecipeIndex = Math.random() * searchRecipe.totalResults;
+      
       // setRecipeID(searchRecipeResults.results[randomRecipeIndex].id);
       // setRecipeImage(searchRecipeResults.results[randomRecipeIndex].image);
       // setRecipeTitle(searchRecipeResults.results[randomRecipeIndex].title);
 
-      // let randomMenuIndex = Math.random() * menuItemSearchResults.totalMenuItems;
+      
       // setMenuID(menuItemSearchResults.menuItems[randomMenuIndex].id);
       // setMenuImage(menuItemSearchResults.menuItems[randomMenuIndex].image);
       // setMenuTitle(menuItemSearchResults.menuItems[randomMenuIndex].title);

@@ -16,6 +16,7 @@ function Comparison() {
       <div className="result"> 
         <Results></Results>
       </div>
+      
     </div>
   );
 }

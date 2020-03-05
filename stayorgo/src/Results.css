@@ -6,6 +6,7 @@
   /* width: 400px;
   height: 200px; */
   margin: 55px;
+  grid-row: 1;
 }
 
 h2{

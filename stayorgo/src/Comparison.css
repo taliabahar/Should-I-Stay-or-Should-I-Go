@@ -3,7 +3,7 @@ body {
   width: 100vw;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: 5% 95%;
+  grid-template-rows: 50% 50%;
 }
 
 .Comparison {
@@ -50,4 +50,8 @@ body {
   grid-row: 1 / span 1;
   grid-column: 2 / span 1;
   text-align: center;
+}
+
+#stay h1, #go h1 {
+  border: none;
 }
