@@ -1,7 +1,6 @@
 let api = "https://api.spoonacular.com";
 // let token = "f7deaa757e034458bb5c8a8b911c82eb";
-// let token = "b7f5692c27fe4d57ba72e520f6937842";
-let token = "321f66bc22f84aa9889fa33bc802f33d";
+let token = "39e15ea3fbe04194b88509f19335fbcd";
 
 // GET https://api.spoonacular.com/recipes/search -gets ID to feed into next call
 // GET https://api.spoonacular.com/recipes/{id}/nutritionWidget.json
@@ -91,7 +90,7 @@ const nutritionResults = id => {
 //api.spoonacular.com/food/menuItems/search?query=burger&number=2&apiKey=f7deaa757e034458bb5c8a8b911c82eb
 
 const menuItemSearch = foodEntry => {
-  const url = `/food/menuItems/search?query=${foodEntry}&number=2&apiKey=f7deaa757e034458bb5c8a8b911c82eb`;
+  const url = `/food/menuItems/search?query=${foodEntry}&number=2&apiKey=39e15ea3fbe04194b88509f19335fbcd`;
   const query_url = queryGET(url);
   return query_url;
 };
