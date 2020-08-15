@@ -2,5 +2,5 @@
 
 Assignment #2 for CMSI 399 App Development Practicum Spring 2020.
 
-Created a React Hooks web app that utilizes the Spoonacular API. Our app presents users with the variables to consider between deciding to eat out or prepare food at home. People are busy and indecisive, our solution with this app is to guide users to the decision that will best maximize their time and save their money.
+Created a React Hooks web app that utilizes the Spoonacular API. Our app presents users with the variables to consider between deciding to eat out or prepare food at home in terms of health. Given a food our app presents the user with the nutritional information(calories, protein, carbs, etc.) related to the entered food for a meal one could prepare at home versus a meal they could purchase at a restaurant. 
 
